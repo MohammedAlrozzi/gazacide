@@ -32,6 +32,18 @@
         "tags": ["GS", "Injury"],
         "Verified": "false"
 
+    },
+    {
+        "tokenNumber": 4,
+        "connectedTo": [54,54,432],
+        "dateOfIncident": "2023-12-10",
+        "dateOfReporting": "2023-12-15",
+        "geolocation": "12.123,-152.4423",
+        "area": "Ramallah",
+        "reportedBy": "Mohammed-Mousa",
+        "tags": ["GS", "Death"],
+        "Verified": "false"
+
       }
   ]
   
