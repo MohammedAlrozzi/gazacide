@@ -103,7 +103,10 @@ app.post('/add-incident', (req, res) => {
 // Retrieve JSON data for a specific tokenNumber
 app.get('/incident/:tokenNumber', (req, res) => {
   const tokenNumber = parseInt(req.params.tokenNumber, 10);
-  const incident = incidents.find((item) => item.tokenNumber === tokenNumber);
+  const incident = incidents.find((item) => item.tokenNumber === tokenNumber.toString());
+
+
+
 
   if (incident) {
     res.json(incident);
