@@ -1,2 +1,2 @@
     tokenNumber,connectedTo,dateOfIncident,dateOfReporting,geolocation,area,reportedBy,
-    453432,mohm,2019-01-01,2019-01-02,12.123,12.123,area1,reportedBy1
+    453432,mohm,2019-01-01,2019-01-02,"12.123,12.123",area1,reportedBy1
