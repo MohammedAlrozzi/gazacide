@@ -31,21 +31,46 @@ fs.readFile('data.json', 'utf8', (err, data) => {
   }
 });
 
-app.get('/', (req, res) => {
-  // Respond with the organized data
-  const organizedData = incidents.map((incident) => ({
-    tokenNumber: incident.tokenNumber,
-    connectedTo: incident.connectedTo,
-    dateOfIncident: incident.dateOfIncident,
-    dateOfReporting: incident.dateOfReporting,
-    geolocation: incident.geolocation,
-    area: incident.area,
-    reportedBy: incident.reportedBy,
-    tags: incident.tags,
-  }));
+// app.get('/', (req, res) => {
+//   // Respond with the organized data
+//   const organizedData = incidents.map((incident) => ({
+//     tokenNumber: incident.tokenNumber,
+//     connectedTo: incident.connectedTo,
+//     dateOfIncident: incident.dateOfIncident,
+//     dateOfReporting: incident.dateOfReporting,
+//     geolocation: incident.geolocation,
+//     area: incident.area,
+//     reportedBy: incident.reportedBy,
+//     tags: incident.tags,
+//   }));
 
-  res.json(organizedData);
-});
+//   res.json(organizedData);
+// });
+
+
+app.get('/incidents', (req, res) => {
+    const { dateOfReporting } = req.query;
+  
+    // Filter incidents based on dateOfReporting if provided
+    const filteredIncidents = dateOfReporting
+      ? incidents.filter((incident) => incident.dateOfReporting === dateOfReporting)
+      : incidents;
+  
+    // Respond with the organized data
+    const organizedData = filteredIncidents.map((incident) => ({
+      tokenNumber: incident.tokenNumber,
+      connectedTo: incident.connectedTo,
+      dateOfIncident: incident.dateOfIncident,
+      dateOfReporting: incident.dateOfReporting,
+      geolocation: incident.geolocation,
+      area: incident.area,
+      reportedBy: incident.reportedBy,
+      tags: incident.tags,
+    }));
+  
+    res.json(organizedData);
+  });
+
 
 // Add a new incident
 app.post('/add-incident', (req, res) => {
@@ -70,3 +95,5 @@ app.get('/incident/:tokenNumber', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+  
