@@ -1,53 +1,35 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const csv = require('csv-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
 // Sample data structure (replace this with your actual data structure)
-
-
-
-
-
-// Sample data structure (replace this with your actual data structure)
 let incidents = [];
 
-// Load data from CSV file
-fs.createReadStream('data.csv')
-  .pipe(csv())
-  .on('data', (row) => {
+// Load data from JSON file
+fs.readFile('data.json', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading JSON file:', err);
+    return;
+  }
+
+  try {
+    incidents = JSON.parse(data);
+
     // Add a tokenNumber to each row
-    row.tokenNumber = incidents.length + 1;
+    incidents = incidents.map((incident, index) => ({
+      ...incident,
+      tokenNumber: index + 1,
+    }));
 
-    // Convert comma-separated values to arrays
-    row.tags = row.tags.split(',');
-
-    incidents.push(row);
-  })
-  .on('end', () => {
-    console.log('CSV file successfully processed.');
-  });
-
-
-
-
-// let incidents = [];
-
-// // Load data from CSV file
-// fs.createReadStream('data.csv')
-//   .pipe(csv())
-//   .on('data', (row) => {
-//     // Add a tokenNumber to each row
-//     row.tokenNumber = incidents.length + 1;
-//     incidents.push(row);
-//   })
-//   .on('end', () => {
-//     console.log('CSV file successfully processed.');
-//   });
+    console.log('JSON file successfully processed.');
+  } catch (parseError) {
+    console.error('Error parsing JSON file:', parseError);
+  }
+});
 
 app.get('/', (req, res) => {
   // Respond with the organized data
@@ -56,11 +38,10 @@ app.get('/', (req, res) => {
     connectedTo: incident.connectedTo,
     dateOfIncident: incident.dateOfIncident,
     dateOfReporting: incident.dateOfReporting,
-    geolocationLat: incident.geolocationLat,
-    geolocationLong: incident.geolocationLong,
+    geolocation: incident.geolocation,
     area: incident.area,
     reportedBy: incident.reportedBy,
-    tag:incident.tags,
+    tags: incident.tags,
   }));
 
   res.json(organizedData);

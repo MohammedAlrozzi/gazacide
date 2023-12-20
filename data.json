@@ -1,0 +1,23 @@
+[
+    {
+      "tokenNumber": 1,
+      "connectedTo": "mohm",
+      "dateOfIncident": "2019-01-01",
+      "dateOfReporting": "2019-01-02",
+      "geolocation": "12.123,12.123",
+      "area": "area1",
+      "reportedBy": "reportedBy1",
+      "tags": ["value1", "value2", "value3"]
+    },
+    {
+      "tokenNumber": 2,
+      "connectedTo": "Mohammed",
+      "dateOfIncident": "2023-12-12",
+      "dateOfReporting": "2023-12-13",
+      "geolocation": "12.123,-12.4423",
+      "area": "area2",
+      "reportedBy": "reportedBy2",
+      "tags": ["value4", "value5"]
+    }
+  ]
+  
