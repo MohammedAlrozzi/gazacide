@@ -31,39 +31,13 @@ fs.readFile('data.json', 'utf8', (err, data) => {
   }
 });
 
-app.get('/incidents', (req, res) => {
-    const queryParams = req.query;
-  
-    // Filter incidents based on query parameters
-    const filteredIncidents = incidents.filter((incident) =>
-      Object.entries(queryParams).every(([key, value]) => {
-        // If the property exists in the incident and the values match, include the incident
-        return incident[key] !== undefined && incident[key].toString() === value.toString();
-      })
-    );
-  
-    // Respond with the organized data
-    const organizedData = filteredIncidents.map((incident) => {
-      const filteredIncident = {};
-      // Include only the properties that match the query parameters
-      Object.keys(incident).forEach((key) => {
-        if (queryParams[key]) {
-          filteredIncident[key] = incident[key];
-        }
-      });
-      return filteredIncident;
-    });
-  
-    res.json(organizedData);
-  });
-  
 
 // app.get('/incidents', (req, res) => {
-//     const { dateOfReporting } = req.query;
+//     const { dateOfIncident } = req.query;
   
 //     // Filter incidents based on dateOfReporting if provided
-//     const filteredIncidents = dateOfReporting
-//       ? incidents.filter((incident) => incident.dateOfReporting === dateOfReporting)
+//     const filteredIncidents = dateOfIncident
+//       ? incidents.filter((incident) => incident.dateOfIncident === dateOfIncident)
 //       : incidents;
   
 //     // Respond with the organized data
@@ -81,7 +55,38 @@ app.get('/incidents', (req, res) => {
 //     res.json(organizedData);
 //   });
 
-
+app.get('/incidents', (req, res) => {
+    const { dateOfIncident, tags } = req.query;
+  
+    // Filter incidents based on dateOfIncident and tags if provided
+    let filteredIncidents = incidents;
+  
+    if (dateOfIncident) {
+      filteredIncidents = filteredIncidents.filter((incident) => incident.dateOfIncident === dateOfIncident);
+    }
+  
+    if (tags) {
+      const tagsArray = tags.split(',').map((tag) => tag.trim());
+      filteredIncidents = filteredIncidents.filter((incident) =>
+        tagsArray.every((tag) => incident.tags && incident.tags.includes(tag))
+      );
+    }
+  
+    // Respond with the organized data
+    const organizedData = filteredIncidents.map((incident) => ({
+      tokenNumber: incident.tokenNumber,
+      connectedTo: incident.connectedTo,
+      dateOfIncident: incident.dateOfIncident,
+      dateOfReporting: incident.dateOfReporting,
+      geolocation: incident.geolocation,
+      area: incident.area,
+      reportedBy: incident.reportedBy,
+      tags: incident.tags,
+    }));
+  
+    res.json(organizedData);
+  });
+  
 // Add a new incident
 app.post('/add-incident', (req, res) => {
   const newIncident = req.body;
