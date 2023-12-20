@@ -8,7 +8,7 @@
       "area": "Gaza City",
       "reportedBy": "Mohammed-Alruzzi",
       "tags": ["GS", "Bombardment", "Death"],
-      "Verified": "true"
+      "Verified": true
     },
     {
       "tokenNumber": 2,
@@ -19,7 +19,7 @@
       "area": "Khan-Younis",
       "reportedBy": "Mohammed-Mousa",
       "tags": ["WB", "Injury"],
-      "Verified": "true"
+      "Verified": true
     },
     {
         "tokenNumber": 3,
@@ -30,7 +30,7 @@
         "area": "Jenin",
         "reportedBy": "Mohammed-Mousa",
         "tags": ["GS", "Injury"],
-        "Verified": "false"
+        "Verified": false
 
     },
     {
@@ -42,7 +42,7 @@
         "area": "Ramallah",
         "reportedBy": "Mohammed-Mousa",
         "tags": ["GS", "Death"],
-        "Verified": "false"
+        "Verified": false
 
       },
       {
@@ -54,7 +54,7 @@
         "area": "Ramallah",
         "reportedBy": "Mohammed",
         "tags": ["GS", "Death"],
-        "Verified": "true"
+        "Verified": true
 
       },
       {
@@ -66,7 +66,7 @@
         "area": "Ramallah",
         "reportedBy": "Mousa",
         "tags": ["GS", "Death"],
-        "Verified": "false"
+        "Verified": false
 
       }
   ]
