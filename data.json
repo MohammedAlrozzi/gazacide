@@ -6,7 +6,7 @@
       "dateOfReporting": "2019-01-02",
       "geolocation": "12.123,12.123",
       "area": "area1",
-      "reportedBy": "reportedBy1",
+      "reportedBy": "Mohammed-Alruzzi",
       "tags": ["value1", "value2", "value3"]
     },
     {
@@ -16,8 +16,18 @@
       "dateOfReporting": "2023-12-13",
       "geolocation": "12.123,-12.4423",
       "area": "area2",
-      "reportedBy": "reportedBy2",
+      "reportedBy": "Mohammed-Mousa",
       "tags": ["value4", "value5"]
-    }
+    },
+    {
+        "tokenNumber": 3,
+        "connectedTo": "Mohammed",
+        "dateOfIncident": "2023-12-10",
+        "dateOfReporting": "2023-12-15",
+        "geolocation": "12.123,-12.4423",
+        "area": "area2",
+        "reportedBy": "Mohammed-Mousa",
+        "tags": ["value4", "value5"]
+      }
   ]
   
