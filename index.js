@@ -8,6 +8,12 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 // Sample data structure (replace this with your actual data structure)
+
+
+
+
+
+// Sample data structure (replace this with your actual data structure)
 let incidents = [];
 
 // Load data from CSV file
@@ -16,11 +22,32 @@ fs.createReadStream('data.csv')
   .on('data', (row) => {
     // Add a tokenNumber to each row
     row.tokenNumber = incidents.length + 1;
+
+    // Convert comma-separated values to arrays
+    row.tags = row.tags.split(',');
+
     incidents.push(row);
   })
   .on('end', () => {
     console.log('CSV file successfully processed.');
   });
+
+
+
+
+// let incidents = [];
+
+// // Load data from CSV file
+// fs.createReadStream('data.csv')
+//   .pipe(csv())
+//   .on('data', (row) => {
+//     // Add a tokenNumber to each row
+//     row.tokenNumber = incidents.length + 1;
+//     incidents.push(row);
+//   })
+//   .on('end', () => {
+//     console.log('CSV file successfully processed.');
+//   });
 
 app.get('/', (req, res) => {
   // Respond with the organized data
@@ -31,9 +58,9 @@ app.get('/', (req, res) => {
     dateOfReporting: incident.dateOfReporting,
     geolocationLat: incident.geolocationLat,
     geolocationLong: incident.geolocationLong,
-
     area: incident.area,
     reportedBy: incident.reportedBy,
+    tag:incident.tags,
   }));
 
   res.json(organizedData);
