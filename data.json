@@ -44,6 +44,30 @@
         "tags": ["GS", "Death"],
         "Verified": "false"
 
+      },
+      {
+        "tokenNumber": 5,
+        "connectedTo": [54,54,432],
+        "dateOfIncident": "2023-12-10",
+        "dateOfReporting": "2023-12-15",
+        "geolocation": "12.123,-152.4423",
+        "area": "Ramallah",
+        "reportedBy": "Mohammed",
+        "tags": ["GS", "Death"],
+        "Verified": "true"
+
+      },
+      {
+        "tokenNumber": 6,
+        "connectedTo": [54,54,432],
+        "dateOfIncident": "2023-12-10",
+        "dateOfReporting": "2023-12-15",
+        "geolocation": "12.123,-152.4423",
+        "area": "Ramallah",
+        "reportedBy": "Mousa",
+        "tags": ["GS", "Death"],
+        "Verified": "false"
+
       }
   ]
   
