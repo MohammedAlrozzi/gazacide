@@ -69,7 +69,7 @@ app.use(bodyParser.json());
 let incidents = [];
 
 // Load data from CSV file
-fs.createReadStream('path/to/your/csvfile.csv')
+fs.createReadStream('data.csv')
   .pipe(csv())
   .on('data', (row) => {
     incidents.push(row);
