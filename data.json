@@ -1,33 +1,37 @@
 [
     {
       "tokenNumber": 1,
-      "connectedTo": "mohm",
+      "connectedTo": [545465,54545,432],
       "dateOfIncident": "2019-01-01",
-      "dateOfReporting": "2019-01-02",
-      "geolocation": "12.123,12.123",
-      "area": "area1",
+      "dateOfReporting": "2023-01-02",
+      "geolocation": "12.123,512.123",
+      "area": "Gaza City",
       "reportedBy": "Mohammed-Alruzzi",
-      "tags": ["value1", "value2", "value3"]
+      "tags": ["GS", "Bombardment", "Death"],
+      "Verified": "true"
     },
     {
       "tokenNumber": 2,
-      "connectedTo": "Mohammed",
+      "connectedTo": [545465,54545,41],
       "dateOfIncident": "2023-12-12",
       "dateOfReporting": "2023-12-13",
       "geolocation": "12.123,-12.4423",
-      "area": "area2",
+      "area": "Khan-Younis",
       "reportedBy": "Mohammed-Mousa",
-      "tags": ["value4", "value5"]
+      "tags": ["WB", "Injury"],
+      "Verified": "true"
     },
     {
         "tokenNumber": 3,
-        "connectedTo": "Mohammed",
+        "connectedTo": [54,54,432],
         "dateOfIncident": "2023-12-10",
         "dateOfReporting": "2023-12-15",
-        "geolocation": "12.123,-12.4423",
-        "area": "area2",
+        "geolocation": "12.123,-152.4423",
+        "area": "Jenin",
         "reportedBy": "Mohammed-Mousa",
-        "tags": ["value4", "value5"]
+        "tags": ["GS", "Injury"],
+        "Verified": "false"
+
       }
   ]
   

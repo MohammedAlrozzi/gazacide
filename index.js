@@ -32,28 +32,6 @@ fs.readFile('data.json', 'utf8', (err, data) => {
 });
 
 
-// app.get('/incidents', (req, res) => {
-//     const { dateOfIncident } = req.query;
-  
-//     // Filter incidents based on dateOfReporting if provided
-//     const filteredIncidents = dateOfIncident
-//       ? incidents.filter((incident) => incident.dateOfIncident === dateOfIncident)
-//       : incidents;
-  
-//     // Respond with the organized data
-//     const organizedData = filteredIncidents.map((incident) => ({
-//       tokenNumber: incident.tokenNumber,
-//       connectedTo: incident.connectedTo,
-//       dateOfIncident: incident.dateOfIncident,
-//       dateOfReporting: incident.dateOfReporting,
-//       geolocation: incident.geolocation,
-//       area: incident.area,
-//       reportedBy: incident.reportedBy,
-//       tags: incident.tags,
-//     }));
-  
-//     res.json(organizedData);
-//   });
 
 app.get('/incidents', (req, res) => {
     const { dateOfIncident, tags } = req.query;
